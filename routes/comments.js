@@ -5,9 +5,9 @@ let comments = require('../json/comments')
 
 // CREATE
 router.post('/', function(req, res, next) {
-    comments.push(req.body);
+    comments.unshift(req.body);
 
-    res.redirect('/');
+    res.redirect('/pets/0');
 });
 
 // DESTROY

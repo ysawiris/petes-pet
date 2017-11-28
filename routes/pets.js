@@ -22,7 +22,7 @@ router.get('/:index', function(req, res, next) {
 
 // CREATE
 router.post('/', function(req, res, next) {
-    pets.push(req.body);
+    pets.unshift(req.body);
 
     res.redirect('/');
 });
