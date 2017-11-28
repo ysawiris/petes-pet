@@ -3,14 +3,14 @@ var router = express.Router({mergeParams: true});
 
 let comments = require('../json/comments')
 
-/* POST create pet */
+// CREATE
 router.post('/', function(req, res, next) {
     comments.push(req.body);
 
     res.redirect('/');
 });
 
-/* GET delete pet */
+// DESTROY
 router.delete('/:index', function(req, res, next) {
   res.redirect(`/pets/${req.params.id}`);
 });

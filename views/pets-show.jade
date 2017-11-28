@@ -9,6 +9,8 @@ block content
             p=pet.species
             p Born on #{pet.birthday}
             p=pet.description
+            .text-right
+                a(href="/pets/0/edit").btn-link Edit
             
             hr
             small.text-muted Comments for Rex
@@ -19,3 +21,7 @@ block content
                     button(type="submit").btn.btn-primary Save Comment
             each c in comments
                 p=c.body
+                small.text-right
+                    form(action="/pets/0/comments/0?_method=DELETE" method="POST")
+                        .text-right
+                            button(type="submit").text-danger Remove

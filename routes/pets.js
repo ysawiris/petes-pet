@@ -4,43 +4,43 @@ var router = express.Router();
 let pets = require('../json/pets')
 let comments = require('../json/comments')
 
-/* GET pets */
+
+// INDEX
 router.get('/', function(req, res, next) {
   res.send(pets);
 });
 
-/* GET show pet */
-router.get('/:index', function(req, res, next) {
-  res.render('pets-show', { pet: pets[req.params.index], comments: comments });
-});
-
-/* GET new pet form */
+// NEW
 router.get('/new', function(req, res, next) {
   res.render('pets-new');
 });
 
-/* POST create pet */
+// SHOW
+router.get('/:index', function(req, res, next) {
+  res.render('pets-show', { pet: pets[req.params.index], comments: comments });
+});
+
+// CREATE
 router.post('/', function(req, res, next) {
     pets.push(req.body);
 
     res.redirect('/');
 });
 
-/* GET edit pet */
-router.get('/:index', function(req, res, next) {
+// EDIT
+router.get('/:index/edit', function(req, res, next) {
   res.render('pets-edit', { pet: pets[req.params.index]});
 });
 
-/* PUT update pet */
+// UPDATE
 router.put('/:index', function(req, res, next) {
   res.redirect(`/pets/${req.params.index}`)
 });
 
-/* GET delete pet */
+// DESTROY
 router.delete('/:index', function(req, res, next) {
   res.redirect('/');
 });
-
 
 
 module.exports = router;
