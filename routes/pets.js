@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 let pets = require('../json/pets')
+let comments = require('../json/comments')
 
 /* GET pets */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 /* GET show pet */
 router.get('/:index', function(req, res, next) {
-  res.render('pets-show', { pet: pets[req.params.index]});
+  res.render('pets-show', { pet: pets[req.params.index], comments: comments });
 });
 
 /* GET new pet form */
@@ -35,7 +36,7 @@ router.put('/:index', function(req, res, next) {
   res.redirect(`/pets/${req.params.index}`)
 });
 
-/* GET update pet */
+/* GET delete pet */
 router.delete('/:index', function(req, res, next) {
   res.redirect('/');
 });

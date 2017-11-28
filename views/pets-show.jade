@@ -6,3 +6,16 @@ block content
             img(src="#{pet.picUrlSq}").img-fluid
         .col-sm-8
             h1=pet.name
+            p=pet.species
+            p Born on #{pet.birthday}
+            p=pet.description
+            
+            hr
+            small.text-muted Comments for Rex
+            form(action="/comments" method="POST")
+                .form-group
+                    textarea.form-control(name="body")
+                .text-right
+                    button(type="submit").btn.btn-primary Save Comment
+            each c in comments
+                p=c.body
