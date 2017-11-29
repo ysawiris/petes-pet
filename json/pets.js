@@ -9,66 +9,66 @@ module.exports = [
         description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Fido",
+        species: "Greyhound",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Liver",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Fido is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Rolfe",
+        species: "Pitbull",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Beef",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Rolfe is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Princhi",
+        species: "West Highland White Terrier",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Fish",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Princhi is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Mr. Fluffles",
+        species: "Poodle",
         birthday: "2008-11-11",
         favoriteFood: "Chicken",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Mr. Fluffles is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Santa's Little Helper",
+        species: "Mixed",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Pork",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Santa's Little Helper is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Alf",
+        species: "Alien",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Cats",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Alf is an alien and he's a good alien who loves to play and hang out with his owners. He also likes to nap and enjoys eating cats"
     },
     {
-        name: "Rex",
-        species: "Rottweiler",
+        name: "Bubba",
+        species: "Mastiff",
         birthday: "2008-11-11",
-        favoriteFood: "Chicken",
+        favoriteFood: "Dragon",
         picUrl: "http://via.placeholder.com/350x150",
         picUrlSq: "http://via.placeholder.com/250x250",
-        description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
+        description: "Bubba is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     }
 ]
