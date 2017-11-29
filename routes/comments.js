@@ -1,17 +1,17 @@
-var express = require('express');
-var router = express.Router({mergeParams: true});
+const express = require('express');
+const router = express.Router({mergeParams: true});
 
 let comments = require('../json/comments')
 
 // CREATE
-router.post('/', function(req, res, next) {
+router.post('/', (req, res) => {
     comments.unshift(req.body);
 
     res.redirect('/pets/0');
 });
 
 // DESTROY
-router.delete('/:index', function(req, res, next) {
+router.delete('/:index', (req, res) => {
   res.redirect(`/pets/${req.params.id}`);
 });
 
