@@ -3,24 +3,24 @@ module.exports = [
         body:"Hello happy doggy."
     },
     {
-        body:"Hello happy doggy."
+        body:"Hey what's up."
     },
     {
-        body:"Hello happy doggy."
+        body:"Great dog. Very wow."
     },
     {
-        body:"Hello happy doggy."
+        body:"I like turtles."
     },
     {
-        body:"Hello happy doggy."
+        body:"I bought this dog, but the shipper never sent it.  Can I get a refund?"
     },
     {
-        body:"Hello happy doggy."
+        body:"This dog is great to dress up as a clown."
     },
     {
-        body:"Hello happy doggy."
+        body:"If you buy a lion's mane for this dog, then people wont know that you don't have a pet lion."
     },
     {
-        body:"Hello happy doggy."
+        body:"If dogs ruled the earth, there wouldn't be any wars."
     }
 ];
