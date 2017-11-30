@@ -17,6 +17,7 @@ router.get('/new', (req, res) => {
 
 // SHOW
 router.get('/:index', (req, res) => {
+    
   res.render('pets-show', { pet: pets[req.params.index], comments: comments });
 });
 
