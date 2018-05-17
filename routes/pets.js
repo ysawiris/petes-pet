@@ -1,46 +1,55 @@
-const express = require('express');
-const router = express.Router();
+// MODELS
+var Pet = require('../models/pet');
+var mongoose = require('mongoose');
 
-let pets = require('../json/pets')
-let comments = require('../json/comments')
+// PET ROUTES
+module.exports = (app) => {
 
+  // INDEX PET
+  app.get('/pets', (req, res, next) => {
+    Pet.find((err, pets) => {
+      res.render('pets-index', { pets: pets });
+    });
+  });
+  
+  // NEW PET
+  app.get('/pets/new', (req, res, next) => {
+    res.render('pets-new');
+  });
 
-// INDEX
-router.get('/', (req, res) => {
-  res.send(pets);
-});
+  // CREATE PET
+  app.post('/pets', (req, res, next) => {    
+    var pet = new Pet(req.body);
+    pet.save((err) => {        
+      res.redirect(`/pets/${pet._id}`);
+    });
+  });
+  
+  // SHOW PET
+  app.get('/pets/:id', (req, res, next) => {
+    Pet.findById(req.params.id).exec((err, pet) => {
+      return res.render('pets-show', payload);
+    }
+  });
 
-// NEW
-router.get('/new', (req, res) => {
-  res.render('pets-new');
-});
+  // EDIT PET
+  app.get('/pets/:id/edit', (req, res, next) => {
+    Pet.findById(req.params.id).exec((err, pet) => {
+      return res.render('pets-edit', { pet: pet });
+    });
+  });
 
-// SHOW
-router.get('/:index', (req, res) => {  
-  res.render('pets-show', { pet: pets[req.params.index], comments: comments });
-});
+  // UPDATE PET
+  app.put('/pets/:id', (req, res, next) => {
+    Pet.findByIdAndUpdate(req.params.id, req.body).exec((err, pet) => {
+      res.redirect(`/pets/${pet._id}`)
+    });
+  });
 
-// CREATE
-router.post('/', (req, res) => {
-    pets.unshift(req.body);
-
-    res.redirect('/');
-});
-
-// EDIT
-router.get('/:index/edit', (req, res) => {
-  res.render('pets-edit', { pet: pets[req.params.index]});
-});
-
-// UPDATE
-router.put('/:index', (req, res) => {
-  res.redirect(`/pets/${req.params.index}`)
-});
-
-// DESTROY
-router.delete('/:index', (req, res) => {
-  res.redirect('/');
-});
-
-
-module.exports = router;
+  // DELETE PET
+  app.delete('/pets/:id', (req, res, next) => {
+    Pet.findAndDelete(req.params.id).exec((err, pet) => {
+      return res.redirect('/')
+    });
+  });
+}
