@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const Pet = require('../models/pet');
 
-let pets = require('../json/pets')
+module.exports = (app) => {
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.render('pets-index', { pets: pets });
-});
-
-module.exports = router;
+  /* GET home page. */
+  app.get('/', (req, res) => {
+    Pet.find().exec((err, pets) => {
+      res.render('pets-index', { pets: pets });    
+    });
+  });
+}

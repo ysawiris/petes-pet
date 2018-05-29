@@ -7,12 +7,13 @@ const PetSchema = new Schema({
     createdAt       : { type: Date }
   , updatedAt       : { type: Date }
 
-  , title           : { type: String, required: true }
-  , content         : { type: String, required: true }
-  , rating          : { type: Number, required: true }
-  , username        : { type: String, required: true } 
-  
-  , comments        : [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
+  , name            : { type: String, required: true }
+  , species         : { type: String }
+  , picUrl          : { type: String }
+  , picUrlSq        : { type: String } 
+  , favoriteFood    : { type: String } 
+  , description     : { type: String } 
+
 });
 
 PetSchema.pre('save', function(next){

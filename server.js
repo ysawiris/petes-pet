@@ -1,5 +1,6 @@
 if (!process.env.PORT) {
   require('dotenv').config()
+  process.env.NODE_ENV = "dev"
 }
 
 const express = require('express');
@@ -9,9 +10,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override')
-
-const index = require('./routes/index');
-const pets = require('./routes/pets');
 
 const app = express();
 
@@ -28,13 +26,13 @@ app.use(methodOverride('_method'))
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/pets', pets);
+require('./routes/index.js')(app);
+require('./routes/pets.js')(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
