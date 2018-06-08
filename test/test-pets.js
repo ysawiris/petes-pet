@@ -18,9 +18,12 @@ chai.use(chaiHttp);
 
 describe('Pets', ()  => {
 
-  afterEach((done) => {
-    Pet.remove({$or: [ {name: 'Norman'}, {'name': 'Spider'}] })
-    done();
+  after(() => { 
+    console.log('hello')
+    Pet.deleteMany({$or: [{name: 'Norman'}, {name: 'Spider'}] }).exec((err, pets) => {
+      console.log(pets)
+      pets.remove();
+    }) 
   });
 
   it('should index ALL pets on / GET', (done) => {
