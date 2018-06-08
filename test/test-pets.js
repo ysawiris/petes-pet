@@ -19,13 +19,13 @@ chai.use(chaiHttp);
 describe('Pets', ()  => {
 
   after(() => { 
-    console.log('hello')
     Pet.deleteMany({$or: [{name: 'Norman'}, {name: 'Spider'}] }).exec((err, pets) => {
       console.log(pets)
       pets.remove();
     }) 
   });
 
+  // TEST INDEX
   it('should index ALL pets on / GET', (done) => {
     chai.request(server)
         .get('/')
@@ -35,7 +35,19 @@ describe('Pets', ()  => {
           done();
         });
   });
+
+  // TEST NEW
+  it('should display new form on /pets/new GET', (done) => {
+    chai.request(server)
+      .get(`/pets/new`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.html
+          done();
+        });
+  });
   
+  // TEST CREATE 
   it('should create a SINGLE pet on /pets POST', (done) => {
     chai.request(server)
         .post('/pets')
@@ -47,6 +59,7 @@ describe('Pets', ()  => {
         });
   });
 
+  // TEST SHOW
   it('should show a SINGLE pet on /pets/<id> GET', (done) => {
     var pet = new Pet(fido);
      pet.save((err, data) => {
@@ -61,6 +74,22 @@ describe('Pets', ()  => {
 
   });
 
+  // TEST EDIT
+  it('should edit a SINGLE pet on /pets/<id>/edit GET', (done) => {
+    var pet = new Pet(fido);
+     pet.save((err, data) => {
+       chai.request(server)
+         .get(`/pets/${data._id}/edit`)
+         .end((err, res) => {
+           res.should.have.status(200);
+           res.should.be.html
+           done();
+         });
+     });
+  });
+
+
+  // TEST UPDATE
   it('should update a SINGLE pet on /pets/<id> PUT', (done) => {
     var pet = new Pet(fido);
     pet.save((err, data)  => {
@@ -75,6 +104,7 @@ describe('Pets', ()  => {
     });
   });
 
+  // TEST DELETE
   it('should delete a SINGLE pet on /pets/<id> DELETE', (done) => {
     var pet = new Pet(fido);
     pet.save((err, data)  => {
