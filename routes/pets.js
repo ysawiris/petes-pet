@@ -48,7 +48,7 @@ module.exports = (app) => {
 
   // DELETE PET
   app.delete('/pets/:id', (req, res) => {
-    Pet.findAndDelete(req.params.id).exec((err, pet) => {
+    Pet.findByIdAndRemove(req.params.id).exec((err, pet) => {
       return res.redirect('/')
     });
   });
