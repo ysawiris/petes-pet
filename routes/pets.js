@@ -20,9 +20,13 @@ module.exports = (app) => {
   app.post('/pets', (req, res) => {    
     var pet = new Pet(req.body);
 
-    pet.save((err) => { 
-      res.redirect(`/pets/${pet._id}`);
-    });
+    pet.save()
+      .then((pet) => { 
+        res.redirect(`/pets/${pet._id}`);
+      })
+      .catch((err) => {
+        // Handle Errors
+      }) ;
   });
   
   // SHOW PET
@@ -41,9 +45,13 @@ module.exports = (app) => {
 
   // UPDATE PET
   app.put('/pets/:id', (req, res) => {
-    Pet.findByIdAndUpdate(req.params.id, req.body).exec((err, pet) => {
-      res.redirect(`/pets/${pet._id}`)
-    });
+    Pet.findByIdAndUpdate(req.params.id, req.body)
+      .then((pet) => {
+        res.redirect(`/pets/${pet._id}`)
+      })
+      .catch((err) => {
+        // Handle Errors
+      });
   });
 
   // DELETE PET
