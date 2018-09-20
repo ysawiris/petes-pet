@@ -4,31 +4,26 @@ const Pet = require('../models/pet');
 // PET ROUTES
 module.exports = (app) => {
 
-  // INDEX PET
-  app.get('/pets', (req, res) => {
-    Pet.find((err, pets) => {
-      res.render('pets-index', { pets: pets });
-    });
-  });
-  
+  // INDEX PET => index.js
+
   // NEW PET
   app.get('/pets/new', (req, res) => {
     res.render('pets-new');
   });
 
   // CREATE PET
-  app.post('/pets', (req, res) => {    
+  app.post('/pets', (req, res) => {
     var pet = new Pet(req.body);
 
     pet.save()
-      .then((pet) => { 
+      .then((pet) => {
         res.redirect(`/pets/${pet._id}`);
       })
       .catch((err) => {
         // Handle Errors
       }) ;
   });
-  
+
   // SHOW PET
   app.get('/pets/:id', (req, res) => {
     Pet.findById(req.params.id).exec((err, pet) => {
