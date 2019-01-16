@@ -6,11 +6,12 @@ const mongoose = require('mongoose'),
 const PetSchema = new Schema({
     name            : { type: String, required: true }
   , species         : { type: String }
+  , birthday        : { type: Date }
   , picUrl          : { type: String }
-  , picUrlSq        : { type: String } 
-  , favoriteFood    : { type: String } 
-  , description     : { type: String } 
-}, 
+  , picUrlSq        : { type: String }
+  , favoriteFood    : { type: String }
+  , description     : { type: String }
+},
 {
   timestamps: true
 });
