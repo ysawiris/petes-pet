@@ -3,6 +3,7 @@ if (!process.env.PORT) {
 	process.env.NODE_ENV = "dev";
 }
 
+//our dependencies
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -10,11 +11,21 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const nodemailer = require("nodemailer");
+const mg = require("nodemailer-mailgun-transport");
 
 const app = express();
 
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/petes-pets");
+
+// auth with our mailgun API key and domain
+const auth = {
+	auth: {
+		api_key: process.env.MAILGUN_API_KEY,
+		domain: process.env.EMAIL_DOMAIN,
+	},
+};
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
