@@ -1,19 +1,20 @@
+console.log("js loaded");
 if (document.querySelector("#new-pet")) {
 	document.querySelector("#new-pet").addEventListener("submit", (e) => {
 		e.preventDefault();
-
-		let pet = {};
-		const inputs = document.querySelectorAll(".form-control");
-		for (const input of inputs) {
-			pet[input.name] = input.value;
-		}
-
+		// Use FormData to grab everything now that we have files mixed in with text
+		var form = document.getElementById("new-pet");
+		var pet = new FormData(form);
+		// Assign the multipart/form-data headers to axios does a proper post
 		axios
-			.post("/pets", pet)
-			.then(function (response) {
-				window.location.replace(`/pets/${response.data._id}`);
+			.post("/pets", pet, {
+				headers: {
+					"Content-Type": "multipart/form-data;",
+				},
 			})
-			// New Catch Code
+			.then(function (response) {
+				window.location.replace(`/pets/${response.data.pet._id}`);
+			})
 			.catch(function (error) {
 				const alert = document.getElementById("alert");
 				alert.classList.add("alert-warning");
