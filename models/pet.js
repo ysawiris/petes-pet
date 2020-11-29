@@ -31,6 +31,15 @@ PetSchema.index({
 	description: "text",
 });
 
+// with weights
+PetSchema.index(
+	{ name: "text", species: "text", favoriteFood: "text", description: "text" },
+	{
+		name: "My text index",
+		weights: { name: 10, species: 4, favoriteFood: 2, description: 1 },
+	}
+);
+
 PetSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Pet", PetSchema);
